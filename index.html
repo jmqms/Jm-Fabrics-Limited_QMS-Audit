@@ -106,7 +106,6 @@
 
     <div id="dashboard-view" class="tab-content" style="display:none;">
         <h2>SBU &amp; Line-Wise Analysis</h2>
-        
         <div class="downloader-panel">
             <h3 style="margin-top:0; font-size:16px; color:#1e40af;">📥 Export Full Daily QMS Reports (All Lines Combined)</h3>
             <div style="display:flex; gap:15px; flex-wrap:wrap; align-items:center;">
@@ -129,7 +128,6 @@
                 </div>
             </div>
         </div>
-
         <div class="filter-box">
             <div class="filter-group">
                 <strong>Filter SBU:</strong>
@@ -151,45 +149,24 @@
                 <input type="date" id="dashboard-end-date" onchange="loadDashboard()">
             </div>
         </div>
-
         <div class="dashboard-grid">
             <div class="stat-card"><div class="stat-num" id="stat-total-audits">0</div><div>Total Checkpoints Audited</div></div>
             <div class="stat-card"><div class="stat-num" id="stat-factory-compliance">0%</div><div>Compliance Performance</div></div>
         </div>
-
         <h3>Performance Rankings &amp; Floor Findings</h3>
         <table>
-            <thead>
-                <tr>
-                    <th>SBU</th>
-                    <th>Location / Line ID</th>
-                    <th>Section</th>
-                    <th>Passed Rows</th>
-                    <th>Failed Rows</th>
-                    <th>Compliance Rate</th>
-                </tr>
-            </thead>
+            <thead><tr><th>SBU</th><th>Location / Line ID</th><th>Section</th><th>Passed Rows</th><th>Failed Rows</th><th>Compliance Rate</th></tr></thead>
             <tbody id="dashboard-table-body"></tbody>
         </table>
-
         <h3 style="color: var(--danger); border-top: 2px dashed #cbd5e1; padding-top: 20px;">🚨 Specific Floor Failure Details (By Checkpoint)</h3>
         <table>
-            <thead>
-                <tr>
-                    <th>Line / Area</th>
-                    <th>Section</th>
-                    <th>Specific Audit Checkpoint Question</th>
-                    <th>Failure Rate Tracking</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Line / Area</th><th>Section</th><th>Specific Audit Checkpoint Question</th><th>Failure Rate Tracking</th></tr></thead>
             <tbody id="checkpoint-failures-table-body"></tbody>
         </table>
     </div>
 
     <div id="analysis-dashboard-view" class="tab-content" style="display:none;">
         <h2>🎯 Deep Checkpoint Analysis Matrix</h2>
-        <p style="color:#64748b; margin-top:-10px; margin-bottom:20px;">Filter deep historical rows to calculate point-specific structural failure parameters across your production floors.</p>
-        
         <div class="filter-box" style="flex-direction: column; align-items: stretch; gap: 15px;">
             <div style="display:flex; gap:15px; flex-wrap:wrap;">
                 <div class="filter-group">
@@ -203,16 +180,9 @@
                         <option value="SBU-05">SBU 05</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <strong>Start Date:</strong>
-                    <input type="date" id="analysis-start-date" onchange="runAnalysisEvaluation()">
-                </div>
-                <div class="filter-group">
-                    <strong>End Date:</strong>
-                    <input type="date" id="analysis-end-date" onchange="runAnalysisEvaluation()">
-                </div>
+                <div class="filter-group"><strong>Start Date:</strong><input type="date" id="analysis-start-date" onchange="runAnalysisEvaluation()"></div>
+                <div class="filter-group"><strong>End Date:</strong><input type="date" id="analysis-end-date" onchange="runAnalysisEvaluation()"></div>
             </div>
-            
             <div style="display:flex; gap:15px; flex-wrap:wrap;">
                 <div class="filter-group">
                     <strong>Section:</strong>
@@ -223,40 +193,17 @@
                         <option value="Metal-Needle">Metal &amp; Needle Area</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <strong>Sub-Section:</strong>
-                    <select id="analysis-subsection-filter" onchange="syncAnalysisCheckpoints()">
-                        <option value="">-- Select Category --</option>
-                    </select>
-                </div>
+                <div class="filter-group"><strong>Sub-Section:</strong><select id="analysis-subsection-filter" onchange="syncAnalysisCheckpoints()"><option value="">-- Select Category --</option></select></div>
             </div>
-
-            <div class="filter-group" style="width:100%;">
-                <strong>Target Checkpoint Point:</strong>
-                <select id="analysis-checkpoint-filter" onchange="runAnalysisEvaluation()">
-                    <option value="">-- Choose Verification Checkpoint Point --</option>
-                </select>
-            </div>
+            <div class="filter-group" style="width:100%;"><strong>Target Checkpoint Point:</strong><select id="analysis-checkpoint-filter" onchange="runAnalysisEvaluation()"><option value="">-- Choose Verification Checkpoint Point --</option></select></div>
         </div>
-
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
             <h3>📊 Line-Wise Evaluation Timeline Performance</h3>
             <button class="btn" style="background:#0284c7; padding:8px 16px; font-size:14px;" onclick="downloadAnalysisPDF()">📥 Download Checkpoint Analysis Report</button>
         </div>
-        
         <table>
-            <thead>
-                <tr>
-                    <th>Line/Area ID</th>
-                    <th>Section Profile</th>
-                    <th>Total Days Checked</th>
-                    <th>Days Problems Identified (Failures)</th>
-                    <th>Operational Health Risk Status</th>
-                </tr>
-            </thead>
-            <tbody id="analysis-table-body">
-                <tr><td colspan="5" style="text-align:center; color:#94a3b8;">Set parameters and select a target checkpoint to load tracking tables.</td></tr>
-            </tbody>
+            <thead><tr><th>Line/Area ID</th><th>Section Profile</th><th>Total Days Checked</th><th>Days Problems Identified (Failures)</th><th>Operational Health Risk Status</th></tr></thead>
+            <tbody id="analysis-table-body"><tr><td colspan="5" style="text-align:center; color:#94a3b8;">Set parameters and select a target checkpoint to load tracking tables.</td></tr></tbody>
         </table>
     </div>
 
@@ -264,25 +211,14 @@
         <h2>Saved Database Rows</h2>
         <button class="btn" style="background:#64748b; margin-bottom: 15px;" onclick="clearAllData()">🗑️ Clear Local Visual Cache</button>
         <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Auditor</th>
-                    <th>SBU</th>
-                    <th>Line / Area</th>
-                    <th>Section</th>
-                    <th>Checkpoint Question</th>
-                    <th>Status</th>
-                    <th>Findings / Comments</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Date</th><th>Auditor</th><th>SBU</th><th>Line / Area</th><th>Section</th><th>Checkpoint Question</th><th>Status</th><th>Findings / Comments</th></tr></thead>
             <tbody id="logs-table-body"></tbody>
         </table>
     </div>
 </div>
 
 <script>
-    // ⚠️ IMPORTANT: PLACE YOUR GOOGLE APPS SCRIPT WEB APP DEPLOYMENT URL LINK HERE
+    // URL Link config
     const CLOUD_API_URL = "https://script.google.com/macros/s/AKfycbzeyV2eGfo2VoO1eroqFz82UfoFLcSFYm5tUrMSp3ruKByqkYdEi7MDxqHcbRNZhARA5Q/exec";
 
     let totalActiveCheckpoints = 0;
@@ -290,12 +226,11 @@
     // Initialization Defaults
     document.getElementById('audit-date').valueAsDate = new Date();
     document.getElementById('bulk-download-date').valueAsDate = new Date();
-    
     const baseToday = new Date();
-    const firstDayOfMonth = new Date(baseToday.getFullYear(), baseToday.getMonth(), 1);
-    document.getElementById('dashboard-start-date').valueAsDate = firstDayOfMonth;
+    document.getElementById('dashboard-start-date').valueAsDate = new Date(baseToday.getFullYear(), baseToday.getMonth(), 1);
     document.getElementById('dashboard-end-date').valueAsDate = baseToday;
 
+    // Generates precise line loops structured (SBU# + 01 to 09 + A/B)
     function getLinesForSBU(sbuNum) {
         let lineList = [];
         for (let i = 1; i <= 9; i++) {
@@ -305,12 +240,13 @@
         return lineList;
     }
 
+    // Maps out full structural line arrays cleanly across all 5 production hubs
     const linesDatabase = {
-        'SBU-01': getLinesForSBU(1),
-        'SBU-02': getLinesForSBU(2),
-        'SBU-03': getLinesForSBU(3),
-        'SBU-04': getLinesForSBU(4),
-        'SBU-05': getLinesForSBU(5)
+        'SBU-01': getLinesForSBU(1), // 101A to 109B
+        'SBU-02': getLinesForSBU(2), // 201A to 209B
+        'SBU-03': getLinesForSBU(3), // 301A to 309B
+        'SBU-04': getLinesForSBU(4), // 401A to 409B
+        'SBU-05': getLinesForSBU(5)  // 501A to 509B
     };
 
     const checkpointsDatabase = {
@@ -515,6 +451,7 @@
         btnElement.classList.add('active');
     }
 
+    // Sequentially parses selected line items then prints nested subsection criteria arrays
     function loadCheckpoints() {
         const sbu = document.getElementById('sbu-select').value;
         const section = document.getElementById('section-select').value;
@@ -571,7 +508,6 @@
         else card.classList.remove('fail');
     }
 
-    // CLOUD DATABASE WRITE OPERATION
     function saveAuditData(triggerDownload = false) {
         const auditor = document.getElementById('auditor-name').value.trim();
         const date = document.getElementById('audit-date').value;
@@ -590,8 +526,6 @@
             const question = questionEl.innerText || questionEl.textContent;
             const status = document.querySelector(`input[name="cp-${i}"]:checked`).value;
             const comment = document.getElementById(`comment-${i}`).value.trim();
-            
-            // Extract the line metadata directly bound on the structural element level
             const line = questionEl.getAttribute('data-line');
             
             payloadRows.push({ date, auditor, sbu, section, line, question, status, comment });
@@ -609,12 +543,9 @@
         .then(() => {
             alert('🎉 Compliance log compiled and pushed into Cloud Master Database!');
             actionButtons.forEach(btn => btn.disabled = false);
-            
-            // UI Reset
             document.querySelectorAll('.comment-box').forEach(box => box.value = '');
             document.querySelectorAll('input[type="radio"][value="Pass"]').forEach(radio => radio.checked = true);
             document.querySelectorAll('.checkpoint-card').forEach(card => card.classList.remove('fail'));
-            
             if(triggerDownload) { alert('System Report Generation Target: Offline layout ready for pipeline mapping.'); }
         })
         .catch(error => {
@@ -623,12 +554,11 @@
         });
     }
 
-    // DASHBOARD LIVE RE-STREAM 
+    // Remaining visualization background tasks (loadDashboard, loadLogs, etc.) stay fully setup
     function loadDashboard() {
         const sbuFilter = document.getElementById('dashboard-sbu-filter').value;
         const startDateVal = document.getElementById('dashboard-start-date').value;
         const endDateVal = document.getElementById('dashboard-end-date').value;
-        
         const tableBody = document.getElementById('dashboard-table-body');
         const failureTableBody = document.getElementById('checkpoint-failures-table-body');
         tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center;">🔄 Requesting latest calculations from server...</td></tr>`;
@@ -653,10 +583,8 @@
 
             const countTotal = filteredData.length;
             const countPass = filteredData.filter(e => e.status === 'Pass').length;
-            const trackingPercentage = countTotal > 0 ? ((countPass / countTotal) * 100).toFixed(1) + '%' : '0%';
-
             document.getElementById('stat-total-audits').innerText = countTotal;
-            document.getElementById('stat-factory-compliance').innerText = trackingPercentage;
+            document.getElementById('stat-factory-compliance').innerText = countTotal > 0 ? ((countPass / countTotal) * 100).toFixed(1) + '%' : '0%';
             
             if (countTotal === 0) {
                 tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#94a3b8;">No entries found for requested timeframe parameters.</td></tr>`;
@@ -684,8 +612,6 @@
                 const [sbu, line, section] = key.split('|||');
                 const dataset = performanceMatrix[key];
                 const lineTotal = dataset.pass + dataset.fail;
-                const lineRate = lineTotal > 0 ? ((dataset.pass / lineTotal) * 100).toFixed(1) + '%' : '100%';
-                
                 tableBody.innerHTML += `
                     <tr>
                         <td><span class="badge" style="background:#475569">${sbu}</span></td>
@@ -693,7 +619,7 @@
                         <td>${section}</td>
                         <td style="color:var(--success); font-weight:bold;">${dataset.pass}</td>
                         <td style="color:var(--danger); font-weight:bold;">${dataset.fail}</td>
-                        <td><span class="badge pass" style="background:${dataset.fail > 0 ? '#ea580c' : '#16a34a'}">${lineRate}</span></td>
+                        <td><span class="badge pass" style="background:${dataset.fail > 0 ? '#ea580c' : '#16a34a'}">${lineTotal > 0 ? ((dataset.pass / lineTotal) * 100).toFixed(1) + '%' : '100%'}</span></td>
                     </tr>
                 `;
             }
@@ -715,144 +641,78 @@
                     `;
                 }
             }
-            if (!problemsExist) {
-                failureTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:#16a34a; font-weight:bold; padding:20px;">🎉 Perfect Run! No non-conformances identified.</td></tr>`;
-            }
+            if (!problemsExist) failureTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:#16a34a; font-weight:bold; padding:20px;">🎉 Perfect Run! No non-conformances identified.</td></tr>`;
         })
-        .catch(err => {
-            tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red;">Cloud API Exception Encountered: ${err}</td></tr>`;
-        });
+        .catch(err => { tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red;">Cloud API Exception Encountered: ${err}</td></tr>`; });
     }
 
-    // SYSTEM ROWS LOG VIEWER RUNTIME
     function loadLogs() {
         const tableBody = document.getElementById('logs-table-body');
         tableBody.innerHTML = `<tr><td colspan="8" style="text-align:center;">🔄 Syncing master document table context arrays...</td></tr>`;
-        
-        fetch(CLOUD_API_URL)
-        .then(res => res.json())
-        .then(dataArray => {
+        fetch(CLOUD_API_URL).then(res => res.json()).then(dataArray => {
             tableBody.innerHTML = '';
-            if(!dataArray || dataArray.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="8" style="text-align:center;">No cloud tracking indices found.</td></tr>`;
-                return;
-            }
+            if(!dataArray || dataArray.length === 0) { tableBody.innerHTML = `<tr><td colspan="8" style="text-align:center;">No cloud tracking indices found.</td></tr>`; return; }
             dataArray.reverse().forEach(row => {
-                const itemBadge = row.status === 'Pass' ? 'pass' : (row.status === 'Fail' ? 'fail' : '');
                 const backgroundRule = row.status === 'Pass' ? 'background:var(--success)' : (row.status === 'Fail' ? 'background:var(--danger)' : 'background:#64748b');
-                
                 tableBody.innerHTML += `
                     <tr>
-                        <td>${row.date || '-'}</td>
-                        <td>${row.auditor || '-'}</td>
+                        <td>${row.date || '-'}</td><td>${row.auditor || '-'}</td>
                         <td><span class="badge" style="background:#64748b">${row.sbu || '-'}</span></td>
-                        <td><strong>${row.line || '-'}</strong></td>
-                        <td>${row.section || '-'}</td>
-                        <td>${row.question || '-'}</td>
-                        <td><span class="badge ${itemBadge}" style="${backgroundRule}">${row.status || '-'}</span></td>
+                        <td><strong>${row.line || '-'}</strong></td><td>${row.section || '-'}</td><td>${row.question || '-'}</td>
+                        <td><span class="badge" style="${backgroundRule}">${row.status || '-'}</span></td>
                         <td><span class="${row.status === 'Fail' ? 'comment-text' : ''}">${row.comment || '-'}</span></td>
                     </tr>
                 `;
             });
-        })
-        .catch(err => {
-            tableBody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:red;">Endpoint Sync Exception: ${err}</td></tr>`;
         });
     }
 
-    // DEEP CHECKPOINT MATRIX ANALYTICS ENGINE
-    function initAnalysisFilters() {
-        syncAnalysisCategories();
-    }
-
+    function initAnalysisFilters() { syncAnalysisCategories(); }
     function syncAnalysisCategories() {
-        const structuralSection = document.getElementById('analysis-section-filter').value;
-        const subCategorySelector = document.getElementById('analysis-subsection-filter');
-        subCategorySelector.innerHTML = '<option value="">-- Select Category --</option>';
-        
-        if(structuralSection && checkpointsDatabase[structuralSection]) {
-            for(let catKey in checkpointsDatabase[structuralSection]) {
-                subCategorySelector.innerHTML += `<option value="${catKey}">${catKey}</option>`;
-            }
-        }
+        const section = document.getElementById('analysis-section-filter').value;
+        const subCat = document.getElementById('analysis-subsection-filter');
+        subCat.innerHTML = '<option value="">-- Select Category --</option>';
+        if(section && checkpointsDatabase[section]) { for(let cat in checkpointsDatabase[section]) { subCat.innerHTML += `<option value="${cat}">${cat}</option>`; } }
         syncAnalysisCheckpoints();
     }
-
     function syncAnalysisCheckpoints() {
-        const structuralSection = document.getElementById('analysis-section-filter').value;
-        const historicalSubCat = document.getElementById('analysis-subsection-filter').value;
-        const targetedSelector = document.getElementById('analysis-checkpoint-filter');
-        targetedSelector.innerHTML = '<option value="">-- Choose Verification Checkpoint Point --</option>';
-        
-        if(structuralSection && historicalSubCat && checkpointsDatabase[structuralSection][historicalSubCat]) {
-            checkpointsDatabase[structuralSection][historicalSubCat].forEach(questionString => {
-                targetedSelector.innerHTML += `<option value="${questionString}">${questionString}</option>`;
-            });
-        }
+        const section = document.getElementById('analysis-section-filter').value;
+        const subCat = document.getElementById('analysis-subsection-filter').value;
+        const targeted = document.getElementById('analysis-checkpoint-filter');
+        targeted.innerHTML = '<option value="">-- Choose Verification Checkpoint Point --</option>';
+        if(section && subCat && checkpointsDatabase[section][subCat]) { checkpointsDatabase[section][subCat].forEach(q => { targeted.innerHTML += `<option value="${q}">${q}</option>`; }); }
         runAnalysisEvaluation();
     }
-
     function runAnalysisEvaluation() {
         const sbuScope = document.getElementById('analysis-sbu-filter').value;
-        const analyticStart = document.getElementById('analysis-start-date').value;
-        const analyticEnd = document.getElementById('analysis-end-date').value;
-        const exactTargetQuestion = document.getElementById('analysis-checkpoint-filter').value;
-        const mainAnalyticsTable = document.getElementById('analysis-table-body');
+        const start = document.getElementById('analysis-start-date').value;
+        const end = document.getElementById('analysis-end-date').value;
+        const targetQ = document.getElementById('analysis-checkpoint-filter').value;
+        const mainTable = document.getElementById('analysis-table-body');
         
-        if(!exactTargetQuestion) {
-            mainAnalyticsTable.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#94a3b8;">Set parameters and select a target checkpoint to load tracking tables.</td></tr>`;
-            return;
-        }
-        mainAnalyticsTable.innerHTML = `<tr><td colspan="5" style="text-align:center;">🔄 Querying cloud datasets...</td></tr>`;
+        if(!targetQ) { mainTable.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#94a3b8;">Set parameters and select a target checkpoint to load tracking tables.</td></tr>`; return; }
+        mainTable.innerHTML = `<tr><td colspan="5" style="text-align:center;">🔄 Querying cloud datasets...</td></tr>`;
         
-        fetch(CLOUD_API_URL)
-        .then(res => res.json())
-        .then(cloudCache => {
-            const targetMinDate = analyticStart ? new Date(analyticStart) : null;
-            const targetMaxDate = analyticEnd ? new Date(analyticEnd) : null;
-            if(targetMinDate) targetMinDate.setHours(0,0,0,0);
-            if(targetMaxDate) targetMaxDate.setHours(23,59,59,999);
-
-            const verifiedTargetArray = cloudCache.filter(itemRow => {
-                if (sbuScope !== 'ALL' && itemRow.sbu !== sbuScope) return false;
-                if (itemRow.question !== exactTargetQuestion) return false;
-                if (itemRow.date) {
-                    const rowParsedDate = new Date(itemRow.date);
-                    if (targetMinDate && rowParsedDate < targetMinDate) return false;
-                    if (targetMaxDate && rowParsedDate > targetMaxDate) return false;
-                }
+        fetch(CLOUD_API_URL).then(res => res.json()).then(cloudCache => {
+            const minD = start ? new Date(start) : null; const maxD = end ? new Date(end) : null;
+            if(minD) minD.setHours(0,0,0,0); if(maxD) maxD.setHours(23,59,59,999);
+            const verified = cloudCache.filter(r => {
+                if (sbuScope !== 'ALL' && r.sbu !== sbuScope) return false;
+                if (r.question !== targetQ) return false;
+                if (r.date) { const d = new Date(r.date); if (minD && d < minD) return false; if (maxD && d > maxD) return false; }
                 return true;
             });
-
-            let contextualAggregation = {};
-            verifiedTargetArray.forEach(item => {
-                if(!contextualAggregation[item.line]) { 
-                    contextualAggregation[item.line] = { totalChecked: 0, nonConformances: 0, lineSection: item.section }; 
-                }
-                contextualAggregation[item.line].totalChecked++;
-                if(item.status === 'Fail') { contextualAggregation[item.line].nonConformances++; }
+            let agg = {};
+            verified.forEach(item => {
+                if(!agg[item.line]) { agg[item.line] = { totalChecked: 0, nonConformances: 0, lineSection: item.section }; }
+                agg[item.line].totalChecked++; if(item.status === 'Fail') agg[item.line].nonConformances++;
             });
-            
-            mainAnalyticsTable.innerHTML = '';
-            let matrixDataExists = false;
-            for(let keyLineID in contextualAggregation) {
-                matrixDataExists = true;
-                let activeRecord = contextualAggregation[keyLineID];
-                let trackingStatusFlag = activeRecord.nonConformances > 0 ? `<span class="badge fail">🚨 High Risk Action Required</span>` : `<span class="badge pass">🟢 Stable</span>`;
-                
-                mainAnalyticsTable.innerHTML += `
-                    <tr>
-                        <td><strong>${keyLineID}</strong></td>
-                        <td>${activeRecord.lineSection}</td>
-                        <td>${activeRecord.totalChecked} Days Audited</td>
-                        <td style="color:${activeRecord.nonConformances > 0 ? 'red':'green'}; font-weight:bold;">${activeRecord.nonConformances} Days Problem Identified</td>
-                        <td>${trackingStatusFlag}</td>
-                    </tr>
-                `;
+            mainTable.innerHTML = ''; let exists = false;
+            for(let keyLine in agg) {
+                exists = true; let act = agg[keyLine];
+                mainTable.innerHTML += `<tr><td><strong>${keyLine}</strong></td><td>${act.lineSection}</td><td>${act.totalChecked} Days Audited</td><td style="color:${act.nonConformances > 0 ? 'red':'green'}; font-weight:bold;">${act.nonConformances} Days Problem Identified</td><td>${act.nonConformances > 0 ? '<span class="badge fail">🚨 High Risk Action Required</span>' : '<span class="badge pass">🟢 Stable</span>'}</td></tr>`;
             }
-            if(!matrixDataExists) {
-                mainAnalyticsTable.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#94a3b8;">No matching entry data matching criteria parameters.</td></tr>`;
-            }
+            if(!exists) mainTable.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#94a3b8;">No matching entry data matching criteria parameters.</td></tr>`;
         });
     }
 
@@ -860,10 +720,8 @@
         alert('Visual cleared. The underlying structural files inside your Google Sheet are unmodified.');
         document.getElementById('logs-table-body').innerHTML = `<tr><td colspan="8" style="text-align:center; color:#64748b;">Cache empty. Change tabs to query cloud server database.</td></tr>`;
     }
-
     function downloadBulkDailyReport() { alert('Consolidated reporting script initialized.'); }
     function downloadAnalysisPDF() { alert('Export pipeline activated for localized spreadsheet extraction summaries.'); }
 </script>
-
 </body>
 </html>
